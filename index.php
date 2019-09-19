@@ -1,8 +1,8 @@
 <?php 
 	session_start();
 	require_once 'config.php';
-	if(array_key_exists('logged_in',$_SESSION)) {
-		if(!$_SESSION['logged_in']){
+	if(array_key_exists('logged_in',$_COOKIE) || !array_key_exists('logged_in',$_SESSION)) {
+		if(array_key_exists('logged_in',$_SESSION)){
 			function autologin() {
 				$_SESSION['logged_in'] = $_COOKIE['logged_in'];
 				$_SESSION['login'] = $_COOKIE['login'];
