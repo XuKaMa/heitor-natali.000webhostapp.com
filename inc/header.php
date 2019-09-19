@@ -51,7 +51,9 @@
               <a class="dropdown-item" href="<?php echo BASEURL; ?>products">Gerenciador de Produtos</a>
             </div>
           </li>
-		  <?php if(isset($_SESSION['logged_in'])){
+      <?php 
+      if(array_key_exists('logged_in',$_SESSION)):
+      if($_SESSION['logged_in'] == '1'){
 			if($_SESSION['admin'] >= 2):
 			?>
 	  	    <li class="nav-item dropdown">
@@ -65,7 +67,7 @@
 				
 				
               <a class="dropdown-item" href="<?php echo BASEURL; ?>login">Gerenciador de Logins</a>
-			  <?php endif; } ?>
+			  <?php endif; } endif; ?>
             </div>
           </li>
         </ul>

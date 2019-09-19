@@ -1,14 +1,17 @@
 <?php 
 	session_start();
 	require_once 'config.php';
-	if(isset($_SESSION['logged_in'])){
-		function autologin() {
-			$_SESSION['logged_in'] = $_COOKIE['logged_in'];
-			$_SESSION['login'] = $_COOKIE['login'];
-			$_SESSION['admin'] = $_COOKIE['admin'];
-			$_SESSION['user_id'] = $_COOKIE['user_id'];
+	if(array_key_exists('logged_in',$_SESSION)) {
+		if(!$_SESSION['logged_in']){
+			function autologin() {
+				$_SESSION['logged_in'] = $_COOKIE['logged_in'];
+				$_SESSION['login'] = $_COOKIE['login'];
+				$_SESSION['admin'] = $_COOKIE['admin'];
+				$_SESSION['user_id'] = $_COOKIE['user_id'];
+			}
 		}
 	}
+	
 	include(HEADER_TEMPLATE);
 
 ?>
